@@ -3,6 +3,8 @@
         type="text"
         class="form-contol"
         placeholder="Buscar sitio..."
+        #textQuery
+        (keyup)="onQueryChanged(textQuery.value)"
     >
 
     <app-search-results></app-search-results>
