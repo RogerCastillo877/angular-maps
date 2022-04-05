@@ -13,8 +13,8 @@ ng g s maps/services/places --skipTests
 
 ## Create message when is charging
 
-ng g c maps/components/mapViews --skip-test
-ng g c maps/components/loading --skipTest
+ng g c maps/components/mapViews --skip-tests
+ng g c maps/components/loading --skip-tests
 
 ## Install mapbox and set up []
 
