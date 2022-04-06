@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiKey: 'pk.eyJ1Ijoicm9jYXM4NyIsImEiOiJja3Y5a3JtODVhNWlqMzJuenU3d3JtbTVsIn0.zI5FNRvuVM_PyFE4rBYfDw',
 };
 
 /*
