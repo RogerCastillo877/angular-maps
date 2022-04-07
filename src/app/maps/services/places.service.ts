@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PlacesApiClient } from '../api';
 import { Feature, PlacesResponse } from '../interfaces/places';
+import { MapService } from './map.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class PlacesService {
     return !!this.useLocation;
   }
 
-  constructor( private placesApi: PlacesApiClient ) {
+  constructor( private placesApi: PlacesApiClient,
+              private mapServices: MapService ) {
     this.getUserLocation();
   }
 
@@ -39,6 +41,12 @@ export class PlacesService {
 
   getPlacesByQuery( query: string = '') {
 
+    if(query.length === 0) {
+      this.places = [];
+      this.isLoadingPlaces = false;
+      return;
+    }
+
     if( !this.useLocation ) throw Error('No hay userLocation');
 
     this.isLoadingPlaces = true;
@@ -51,7 +59,9 @@ export class PlacesService {
       .subscribe( resp => {
         console.log(resp.features);
         this.isLoadingPlaces = false;
-        this.places = resp.features;        
+        this.places = resp.features;  
+        
+        this.mapServices.createMarkersFromPlaces( this.places );
       });
   }
 }
