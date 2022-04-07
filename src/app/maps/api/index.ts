@@ -1,1 +1,1 @@
-export { PlacesApiClient } from "./places.service";
+export { PlacesApiClient } from "./placesApiClient";
