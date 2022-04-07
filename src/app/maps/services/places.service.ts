@@ -64,4 +64,8 @@ export class PlacesService {
         this.mapServices.createMarkersFromPlaces( this.places, this.useLocation! );
       });
   }
+
+  deletePlaces() {
+    this.places = [];
+  }
 }
