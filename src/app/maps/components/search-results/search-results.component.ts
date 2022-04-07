@@ -27,4 +27,14 @@ export class SearchResultsComponent {
     const [ lng, lat ] = place.center;
     this.mapSercice.flyTo([ lng, lat ]);
   }
+
+  getDirections( place: Feature ) {
+
+    if( !this.placesService.useLocation ) throw Error('Mo hay userLocation');
+
+    const start = this.placesService.useLocation;
+    const end = place.center as [ number, number ];
+
+    this.mapSercice.getRouteBetweenPoints( start, end );
+  }
 }
