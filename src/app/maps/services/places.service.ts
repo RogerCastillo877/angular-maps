@@ -57,11 +57,11 @@ export class PlacesService {
       }
     })
       .subscribe( resp => {
-        console.log(resp.features);
+      
         this.isLoadingPlaces = false;
         this.places = resp.features;  
         
-        this.mapServices.createMarkersFromPlaces( this.places );
+        this.mapServices.createMarkersFromPlaces( this.places, this.useLocation! );
       });
   }
 }
